@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-container {
+            width: 100%;
+            max-width: 1000px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            justify-content: center;
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+        }
+
+        /* Profile Information Styling */
+        .profile-info {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .profile-info h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .profile-info ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .profile-info li {
+            margin: 5px 0;
+            font-size: 18px;
+            color: #444;
+        }
+
+        /* Button Styling */
+        .profile-info button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .profile-info button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<br></br>
+     <br></br> 
+         <br></br>
+    <div class="profile-container">
+        <!-- Profile Image -->
+        <img class="profile-img" src="https://i.ibb.co/6cMJQNK/IMG-20240703-172754.jpg" alt="Profile Image">
+
+        <!-- Profile Information -->
+        <div class="profile-info">
+            <h1 id="name">Satyam Singh Yadav</h1>
+            <p id="qualification">CLASS 12TH Appearing</p>
+
+            <h3>Expert in languages:</h3>
+            <ul id="languages">
+                <!-- Languages will be dynamically loaded -->
+            </ul>
+
+            <!-- Logout Button -->
+            <button onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        // Profile info
+        const profile = {
+            name: "Satyam Singh Yadav",
+            qualification: "CEO Of Sattu technologiee || SSY BRAND",
+            languages: ["HTML", "CSS", "JavaScript","Php","MySQL","Node.js","Database Management","C Plus Plus"]
+        };
+
+        // Function to load profile details
+        function loadProfile() {
+            document.getElementById("name").textContent = profile.name;
+            document.getElementById("qualification").textContent = profile.qualification;
+
+            const languagesList = document.getElementById("languages");
+            languagesList.innerHTML = ''; // Clear existing list
+
+            profile.languages.forEach(lang => {
+                const listItem = document.createElement("li");
+                listItem.textContent = lang;
+                languagesList.appendChild(listItem);
+            });
+        }
+
+        // Function to handle logout and redirect
+        function logout() {
+            window.location.href = "https://ssy.rf.gd/"; // Redirect to home page
+        }
+
+        // Initial load of profile
+        loadProfile();
+    </script>
+
+</body>
+</html>
